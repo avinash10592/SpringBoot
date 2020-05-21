@@ -29,10 +29,17 @@ public class SpringBootExternalService {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	// get all the products
 	public List<Product> getAllProducts() {
 		ResponseEntity<Product[]> response = restTemplate.getForEntity(url, Product[].class);
 		return Arrays.asList(response.getBody());
 
+	}
+
+	// get by Id
+	public Product getProductById(int pId) {
+		ResponseEntity<Product> response = restTemplate.getForEntity(url + "/" + pId, Product.class);
+		return response.getBody();
 	}
 
 	// add product
@@ -47,14 +54,8 @@ public class SpringBootExternalService {
 	}
 
 	// deletes product
-	public void deleteProduct(String id) {
-		restTemplate.delete(url + id);
+	public void deleteProduct(int pId) {
+		restTemplate.delete(url + pId);
 
-	}
-
-	// get by Id
-	public Product getProductById(int id) {
-		ResponseEntity<Product> response = restTemplate.getForEntity(url + "/" + id, Product.class);
-		return response.getBody();
 	}
 }
