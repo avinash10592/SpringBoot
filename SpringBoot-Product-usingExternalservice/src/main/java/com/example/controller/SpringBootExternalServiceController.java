@@ -74,7 +74,14 @@ public class SpringBootExternalServiceController {
 	@RequestMapping(value = "/deleteProduct/{pId}", method = RequestMethod.GET)
 	public String delete(@PathVariable int pId) {
 		externalService.deleteProduct(pId);
-		return "redirect:/myapp/viewprodyct";
+		return "redirect:/myapp/viewprodyct";	
+
+	}
+	@RequestMapping("/viewWithoutEdit")
+	public String viewWithoutEdit(Model model) {
+		List<Product> list = externalService.getAllProducts();
+		model.addAttribute("list", list);
+		return "viewWithoutEdit";
 
 	}
 
