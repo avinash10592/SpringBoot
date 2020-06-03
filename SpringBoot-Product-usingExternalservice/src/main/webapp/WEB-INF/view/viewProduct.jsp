@@ -36,12 +36,14 @@
 
 
 
+
 			</tr>
 		</c:forEach>
 	</table>
 
 
 	<br />
+	<a href="http://localhost:8082/logout" > Click here to logout</a>
 	<br />
 
 </body>
