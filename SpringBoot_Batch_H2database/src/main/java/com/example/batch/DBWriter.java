@@ -18,6 +18,6 @@ public class DBWriter implements ItemWriter<User> {
 	public void write(List<? extends User> users) throws Exception {
 
 		System.out.println("Data Saved for Users: " + users);
-		userRepository.save(users);
+		userRepository.saveAll(users);
 	}
 }
